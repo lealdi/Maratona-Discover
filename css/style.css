@@ -2,6 +2,7 @@
     --dark-blue:#363f5f;
     --green: #49AA26;
     --light-green: #3dd705;
+    --red: #e92929;
 }
 
 *{
@@ -52,7 +53,7 @@ a{
 }
 
 a:hover {
-    color: #3dd705;
+    color: var(--light-green);
 }
 
 button{
@@ -80,7 +81,21 @@ button:hover{
 }
 
 .button.cancel{
+    color: var(--red);
+    border: 2px var(--red) solid;
+    border-radius: 0.25rem;
 
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0.6;
+}
+
+.button.cancel:hover {
+    opacity: 1;
 }
 
 /* Header =============================== */
@@ -204,6 +219,8 @@ td.expense {
 
     opacity: 0;
     visibility: hidden;
+
+    z-index: 999;
 }
 
 .modal-overlay.active { 
@@ -216,6 +233,9 @@ td.expense {
     padding: 2.4rem;
     width: 90%;
     max-width: 500px;
+
+    position: relative;
+    z-index: 1;
     
 }
 /* Form ============================== */
