@@ -47,13 +47,38 @@ const transactions = [
 
 const Transaction = {
     incomes() {
-        // Somar as entradas
+        let income = 0;
+        // Pegar todas as transacoes
+        // para cada transacao
+        transactions.forEach(transaction => {        
+            // se ela for maior que zero
+            if(transaction.amount > 0) {
+                // somar a uma variavel e retornar a variavel 
+                income += transaction.amount;
+            }            
+                       
+
+        })
+        return income; 
     },
     expenses() {
-        // Somar as saídas
+        let expense = 0;
+        // Pegar todas as transacoes
+        // para cada transacao
+        transactions.forEach(transaction => {        
+            // se ela for menor que zero
+            if(transaction.amount < 0) {
+                // somar a uma variavel e retornar a variavel 
+                expense += transaction.amount;
+            }            
+                       
+
+        })
+        return expense; 
+        
     },
     total() {
-        // Entradas - saidas
+        return "Discover"// Entradas - saidas
     }
 
 }
@@ -87,6 +112,17 @@ const DOM = {
         `
 
         return html
+    },
+
+    updateBalance() {
+        document.getElementById("incomeDisplay")
+        .innerHTML = Transaction.incomes()
+
+        document.getElementById("expenseDisplay")
+        .innerHTML = Transaction.expenses()
+
+        document.getElementById("totalDisplay")
+        .innerHTML = Transaction.total()
     }
 }
 
@@ -110,3 +146,5 @@ const Utils = {
 transactions.forEach(function(transaction) {
     DOM.addTransaction(transaction)
 })
+
+DOM.updateBalance()
